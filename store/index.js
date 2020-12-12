@@ -20,12 +20,13 @@ export const mutations = {
     state.token = token
 
     // Store token in cookies
-    if (inBrowser) {
-      if (token) {
-        this.$cookies.set('token', token, { expires: 30 })
-      } else {
-        this.$cookies.remove('token')
-      }
-    }
+    // if (inBrowser) {
+    //   if (token) {
+    //     // this.$cookies.set('token', token, { expires: 30 })
+    //     this.$cookies.set('token', token, { expires: 30 })
+    //   } else {
+    //     this.$cookies.remove('token')
+    //   }
+    // }
   }
 }

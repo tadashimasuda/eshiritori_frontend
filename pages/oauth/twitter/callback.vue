@@ -6,12 +6,12 @@
       <p>Twitterでのログインに失敗しました。</p>
       <p>{{ failedMessage }}</p>
     </template>
+    <nuxt-link to="/oauth/twitter/redirect">redirect</nuxt-link>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-
 export default {
 //   middleware: 'guest',
   data () {
@@ -26,19 +26,17 @@ export default {
     }
   },
 
-  methods: mapMutations([
-    'setToken',
-    'setUser'
-  ]),
+  methods: mapMutations(['setToken','setUser']),
 
-   mounted() {
-    this.$axios.$get('/oauth/twitter/callback', { params: this.$route.query }).then(res=>{
-            alert(res);
-            // this.setToken({ token: res.access_token });
-            // this.setUser({ user: res.user });
-       }).catch( err=>{
-        this.failedMessage = err.message;   
-       });
+   async mounted() {
+     try {
+        const res  = await this.$axios.$get('/oauth/twitter/callback', { params: this.$route.query })
+        this.setToken({ token: res.access_token });
+        this.setUser({ user: res.user });
+        this.$router.replace('/')
+     } catch (err) {
+        this.failedMessage = err.message;  
+     }
   }
 }
 </script>
