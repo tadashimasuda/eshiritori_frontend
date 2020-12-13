@@ -1,5 +1,8 @@
 const inBrowser = typeof window !== 'undefined'
 import Cookies from 'js-cookie';
+import Cookie from 'cookie';
+
+const cookieparser = require('cookieparser');
 
 export const state = () => {
   return {
@@ -16,10 +19,8 @@ export const mutations = {
     state.user = user
     state.loggedIn = Boolean(user)
   },
-
   setToken (state, { token }) {
     state.token = token
-
     // Store token in cookies
     if (inBrowser) {
       if (token) {
@@ -34,5 +35,21 @@ export const mutations = {
 }
 
 export const actions = {
-  
+  async nuxtServerInit({ commit },{ req }){
+    if(req.headers.cookie){
+      const token = 'Bearer ' + cookieparser.parse(req.headers.cookie).token
+      let user = ''; 
+      try {
+          user = await this.$axios.$get('/user',{ 
+            headers:{ 
+              'Authorization': token,
+              'Accept':'application/json'
+            }
+          })
+        } catch (err) {
+          console.log(err);
+        }
+      commit('setUser',user);
+    }
+  }
 }
