@@ -31,6 +31,11 @@ export const mutations = {
         Cookies.remove('token');
       } 
     }
+  },
+  deleteToken(state){
+    state.token=null
+    state.user=null;
+    Cookies.remove('token');
   }
 }
 
