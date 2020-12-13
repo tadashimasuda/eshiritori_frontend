@@ -35,7 +35,7 @@ export default {
         this.setUser({ user: res.user });
         this.$router.replace('/')
      } catch (err) {
-        this.failedMessage = err.message;  
+        this.failedMessage = err.message;
      }
   }
 }

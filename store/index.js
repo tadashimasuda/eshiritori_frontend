@@ -24,10 +24,8 @@ export const mutations = {
     // Store token in cookies
     if (inBrowser) {
       if (token) {
-        // this.$cookies.set('token', token, { expires: 30 })
         Cookies.set('token', token)
       } else {
-        // this.$cookies.remove('token')
         Cookies.remove('token');
       } 
     }
@@ -52,7 +50,7 @@ export const actions = {
             }
           })
         } catch (err) {
-          console.log(err);
+          // console.log(err);
         }
       commit('setUser',user);
     }
