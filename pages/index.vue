@@ -1,13 +1,15 @@
 <template>
-  <div class="container border">
+  <div class="container">
     <div class="top border">
     </div>
     <div class="contents mt-5">
       <div class="tables">
         <h2>最近更新されたテーブル</h2>
+        {{tables}}
       </div>
       <div class="posts">
         <h2>最新投稿</h2>
+        {{posts}}
       </div>
     </div>
   </div>
@@ -21,11 +23,16 @@ export default {
       posts:[],
     }
   },
-  // async asyncData(){
-  //   await this.$axios.$get('/tables',{params:{'top':'top'}}).then(res=>{
-  //     console.log(res);
-  //   })
-  // }
+  async asyncData({$axios}){
+    let [tablesData,postsData] = await Promise.all([
+      $axios.$get('/tables',{params:{'top':'top'}}),
+      $axios.$get('/posts',{params:{'top':'top'}})
+    ]);
+    return{
+      tables:tablesData,
+      posts:postsData
+    }
+  }
 }
 </script>
 
