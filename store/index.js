@@ -12,7 +12,14 @@ export const state = () => {
   }
 }
 
-export const getters = {}
+export const getters = {
+  authenticated(state){
+    return state.loggedIn;
+  },
+  user(state){
+    return state.user;
+  }
+}
 
 export const mutations = {
   setUser (state, { user }) {

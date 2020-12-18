@@ -1,9 +1,17 @@
 <template>
   <div>
-      <header>
-        <nav class="navbar navbar-light bg-light justify-content-center">
-          <h1>Header</h1>
-          <button @click="menu = !menu" class="btn justify-content-first">menu</button>
+      <header class="bg-light">
+        <nav class="navbar navbar-light container">
+          <template v-if="authenticated">
+            <nuxt-link to='/oauth/twitter/redirect' class="navbar-brand text-left">ログイン</nuxt-link>
+          </template>
+          <template v-else>
+            <a href="#">{{user.name}}</a>
+          </template>
+          <nuxt-link to="/" class="navbar-brand mx-auto">Header</nuxt-link>
+          <div class="text-right">
+            <button type="button" @click="menu = !menu" class="navbar-toggler-icon border-0"></button>
+          </div>
         </nav>
       </header>
       <transition name="right" class="menu">
