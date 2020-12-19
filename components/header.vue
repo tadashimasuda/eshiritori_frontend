@@ -16,7 +16,7 @@
       </header>
       <transition>
         <div v-if="menu" class="drawer-menu-wrapper bg-light">
-          <div class="user text-center pt-4">
+          <div class="header_user text-center pt-4">
             <template v-if="user">
               <img :src="user.img_path" alt="" class="user_img">
               <h3 class="mt-4">{{user.name}}</h3>
@@ -84,7 +84,7 @@ export default {
   width: 50%;
   height: 120%;
 }
-.user{
+.header_user{
   height: 150px;
 }
 ul{
