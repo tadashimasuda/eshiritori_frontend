@@ -1,6 +1,6 @@
 <template>
 <div>
-  <canvas id="canvas" ref="canvas" v-on:mouseover="MouseOver" v-on:mouseout="MouseOut" v-on:mousemove="MouseMove" width="500" height="300" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
+  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="500" height="300" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
   <div class="option">
     <div class="color">
       色：  
@@ -41,11 +41,10 @@ export default {
         this.ctx.fillRect(0,0,this.cnvWidth,this.cnvHeight);
     },
     methods: {
-        MouseOver: function() {
-            console.log('a');
+        MouseDown: function() {
             this.clickFlg = 1;
         },
-        MouseOut: function() {
+        MouseUp: function() {
             this.clickFlg = 0;
         },
         MouseMove: function(e){
