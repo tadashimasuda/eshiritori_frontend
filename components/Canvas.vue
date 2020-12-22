@@ -2,17 +2,17 @@
 <div>
   <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="500" height="300" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
   <div class="option">
-    <div class="color">
-      色：  
-      <button class="black" @click.prevent='cnvColor ="0, 0,0, 1"'></button>
-      <button class="red" @click.prevent='cnvColor ="255, 0, 0, 1"'></button>
-      <button class="blue" @click.prevent='cnvColor ="0, 0,255, 1"'></button>
+    <div class="button_option">
+      <button type="button" class="btn rounded-circle p-0 black" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,0, 1"'></button>
+      <button type="button" class="btn rounded-circle p-0 red" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="255, 0, 0, 1"'></button>
+      <button type="button" class="btn rounded-circle p-0 green" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 180, 0, 1"'></button>
+      <button type="button" class="btn rounded-circle p-0 yellow" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="255, 255, 0, 1"'></button>
+      <button type="button" class="btn rounded-circle p-0 blue" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,255, 1"'></button>
     </div>
     <div class="bold">
-      太さ：
-      <button class="small" @click.prevent='cnvBold = "1"'>小</button>
-      <button class="middle" @click.prevent='cnvBold = "5"'>中</button>
-      <button class="large" @click.prevent='cnvBold = "10"'>大</button>
+      <button type="button" class="small btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "1"'>小</button>
+      <button type="button" class="middle btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "5"'>中</button>
+      <button type="button" class="large btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "10"'>大</button>
     </div>
   </div>
   <button class="clear" @click.prevent="clear()">clear</button>
@@ -70,10 +70,7 @@ export default {
 }
 </script>
 
-<style>
-  .option{
-    width: 250px;
-  }
+<style>ß
   .color > a{
     display: inline-block;
     width: 20px;
@@ -87,5 +84,11 @@ export default {
   }
   .blue{
     background-color: #0000ff;
+  }
+  .green{
+    background-color: #008000;
+  }
+  .yellow{
+    background-color: #FFD400;
   }
 </style>
