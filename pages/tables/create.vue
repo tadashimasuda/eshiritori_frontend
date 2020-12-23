@@ -5,8 +5,8 @@
             <div class="form ">
                 <form> 
                     <label for="table_name">テーブル名：</label>
-                    <input type="text" id="table_name"> 
-                    <Canvas />
+                    <input v-model="name" type="text" id="table_name">
+                    <Canvas @getData="postData" />
                     <!-- <client-only placeholder="Loading...">
                         <CreateImgBtn @click="create"/>
                     </client-only>   -->
@@ -22,9 +22,20 @@ import Canvas from '@/components/Canvas.vue';
 
 export default {
     middleware:['auth'],
+    data(){
+        return{
+            name:''
+        }
+    },
     components:{
         Canvas
     },
+    methods:{
+        postData(data) {
+            console.log(data);
+            console.log(this.name);
+        }
+    }
 
 }
 </script>

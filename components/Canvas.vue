@@ -16,6 +16,7 @@
     </div>
   </div>
   <button class="clear" @click.prevent="clear()">clear</button>
+  <button class="submit" @click.prevent="submit()">submit</button>
 </div>
 </template>
 
@@ -33,12 +34,15 @@ export default {
     },
     mounted() {
         // canvas
-        let cnvs = this.$refs.canvas;
+        let cnvs = null;
+        cnvs = this.$refs.canvas;
         const ctx = null;
         this.ctx = cnvs.getContext('2d');
 
         this.ctx.fillStyle = this.bgColor;
         this.ctx.fillRect(0,0,this.cnvWidth,this.cnvHeight);
+
+       
     },
     methods: {
         MouseDown: function() {
@@ -65,12 +69,17 @@ export default {
             this.ctx.clearRect(0,0,this.cnvWidth,this.cnvHeight);
             this.ctx.fillStyle = this.bgColor;
             this.ctx.fillRect(0,0,this.cnvWidth,this.cnvHeight);
+        },
+        submit:function(){
+          let cnvs = this.$refs.canvas;
+          let data = cnvs.toDataURL();
+          this.$emit('getData', data);
         }
     }
 }
 </script>
 
-<style>ß
+<style>
   .color > a{
     display: inline-block;
     width: 20px;
