@@ -1,38 +1,34 @@
 <template>
     <div class="container">
-        <div class="col-md-10 mx-auto text-center">
-            <h2>テーブルを作成する</h2>
-            <div class="form ">
-                <form> 
-                    <label for="table_name">テーブル名：</label>
-                    <input v-model="name" type="text" id="table_name">
-                    <small v-if="errors.name">{{errors.name[0]}}</small>
-                    <Canvas @getData="postData" />
-                </form>
-            </div>
- 
+        <div class="col-md-8 mx-auto">
+            <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
+            <Canvas @getData="postData" />
         </div>
     </div>
 </template>
-
 <script>
 import Canvas from '@/components/Canvas.vue';
 
 export default {
-    middleware:['auth'],
-    data(){
-        return{
-            name:'',
-            image:''
-        }
-    },
     components:{
         Canvas
+    },
+    data(){
+        return{
+            post:''
+        }
+    },
+    async asyncData({route,$axios}){
+        const id = route.params.id;
+        let { data } = await $axios.$get(`tables/${id}/post`);
+        return{
+            post:data
+        }
     },
     methods:{
         async postData(data) {
             let req = {
-                name:this.name,
+                table_id : this.post.table_id,
                 image : data
             }
             let token = 'Bearer ' + this.$store.getters.token;
@@ -43,13 +39,12 @@ export default {
                     "Accept" : "application/json"
                 }
             }
-            await this.$axios.$post('/table',req,headers).then(res => {
+            await this.$axios.$post('/post',req,headers).then(res => {
                 console.log(res);
             }).catch(err=>{
                 console.log(err.response);
             });
         }
     }
-
 }
 </script>

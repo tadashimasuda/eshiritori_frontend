@@ -10,7 +10,7 @@
                     <img :src="post.user.img_path" width="22" height="22" alt="">
                     <span class="user_name">{{post.user.name}}</span>
                 </div>
-                <img :src="post.img_path" alt="" height="180px" width="100%">
+                <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="" height="180px" width="100%">
             </div>
         </div>
     </div>
