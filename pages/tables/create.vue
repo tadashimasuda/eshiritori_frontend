@@ -6,10 +6,8 @@
                 <form> 
                     <label for="table_name">テーブル名：</label>
                     <input v-model="name" type="text" id="table_name">
+                    <small v-if="errors.name">{{errors.name[0]}}</small>
                     <Canvas @getData="postData" />
-                    <!-- <client-only placeholder="Loading...">
-                        <CreateImgBtn @click="create"/>
-                    </client-only>   -->
                 </form>
             </div>
  
@@ -24,16 +22,36 @@ export default {
     middleware:['auth'],
     data(){
         return{
-            name:''
+            name:'',
+            image:''
         }
     },
     components:{
         Canvas
     },
     methods:{
-        postData(data) {
-            console.log(data);
-            console.log(this.name);
+        // getData(data){
+        //     this.image=data;
+        //     this.postData();
+        // },
+        async postData(data) {
+            let req = {
+                name:this.name,
+                image : data
+            }
+            let token = 'Bearer ' + this.$store.getters.token;
+            let headers = {
+                headers:{
+                    "Authorization" :token,
+                    "Content-Type" : "application/json",
+                    "Accept" : "application/json"
+                }
+            }
+            await this.$axios.$post('/table',req,headers).then(res => {
+                console.log(res);
+            }).catch(err=>{
+                console.log(err.response);
+            });
         }
     }
 

@@ -18,6 +18,9 @@ export const getters = {
   },
   user(state){
     return state.user;
+  },
+  token(state){
+    return state.token; 
   }
 }
 
@@ -57,8 +60,9 @@ export const actions = {
             }
           })
         } catch (err) {
-          // console.log(err);
+          console.log(err);
         }
+      commit('setToken',{ token:cookieparser.parse(req.headers.cookie).token});
       commit('setUser',user);
     }
   }

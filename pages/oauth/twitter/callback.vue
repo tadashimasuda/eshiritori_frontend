@@ -13,7 +13,6 @@
 <script>
 import { mapMutations } from 'vuex'
 export default {
-//   middleware: 'guest',
   data () {
     return {
       failedMessage: null

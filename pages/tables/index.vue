@@ -3,7 +3,7 @@
         <div class="cards mt-3 row mx-auto col-md-10">
           <div class="card mr-2 mt-2" style="width: 18rem;" v-for="table in tables" :key="table.id">
             <nuxt-link :to ="`/tables/${table.id}`">
-                <img :src="table.post.img_path" width="100%" height="180" alt="">
+                <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" width="100%" height="180" alt="">
             </nuxt-link>
                 <div class="pb-2">
                     <h6 class="ml-2 mt-2 user_name">{{table.name}}</h6>
