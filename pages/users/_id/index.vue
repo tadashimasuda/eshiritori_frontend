@@ -21,15 +21,15 @@
                 <div class="posts cards">
                     <div class="post card mx-auto mt-3" style="width: 18rem;" v-for="post in posts" :key="post.id">
                         <nuxt-link :to="`/tables/${post.table_id}`">
-                            <img :src="post.img_path" width="100%" height="180"  alt="">
+                            <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" width="100%" height="180" alt="">
                         </nuxt-link>
                     </div>
                 </div>
             </b-tab>
-            <b-tab title="参加しているテーブル">
+            <b-tab title="主催しているテーブル">
                 <div class="tables cards">
                     <div class="table card mx-auto mt-3" style="width: 18rem;" v-for="table in tables" :key="table.id">
-                        <img :src="table.post.img_path" width="100%" height="180"  alt="">
+                        <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" width="100%" height="180" alt="">
                         <div class="card-body m-0 p-0 pb-1">
                             <h4 class="mt-1 ml-1">{{table.name}}</h4>
                             <small class="ml-1">主催者：</small>
@@ -58,12 +58,22 @@ export default {
     },
     async asyncData({route,$axios}){
         const id = route.params.id;
-        let { data } = await $axios.$get(`/users/${id}`)
-        return{
-            userData:data.user,
-            posts:data.posts,
-            tables:data.tables,
-        }
+
+        let [ {data},tables] = await Promise.all([
+                $axios.$get(`/users/${id}`),
+                $axios.$get(`/tables/${id}/user`)
+            ]);
+            return{
+                userData:data.user,
+                posts:data.posts,
+                tables:tables.data,
+            }
+        // let { data } = await $axios.$get(`/users/${id}`)
+        // return{
+        //     userData:data.user,
+        //     posts:data.posts,
+        //     tables:data.tables,
+        // }
     }
 }
 </script>

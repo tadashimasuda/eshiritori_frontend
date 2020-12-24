@@ -43,7 +43,7 @@ export default {
                     "Accept" : "application/json"
                 }
             }
-            await this.$axios.$post('/table',req,headers).then(res => {
+            await this.$axios.$post('/tables',req,headers).then(res => {
                 console.log(res);
             }).catch(err=>{
                 console.log(err.response);

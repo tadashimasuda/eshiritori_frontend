@@ -32,7 +32,7 @@ export default {
         const res  = await this.$axios.$get('/oauth/twitter/callback', { params: this.$route.query })
         this.setToken({ token: res.access_token });
         this.setUser({ user: res.user });
-        this.$router.replace('/')
+        this.$router.push({path:this.$route.query.redirect||'/'})
      } catch (err) {
         this.failedMessage = err.message;
      }
