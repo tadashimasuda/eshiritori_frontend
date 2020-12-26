@@ -12,7 +12,17 @@ export const state = () => {
   }
 }
 
-export const getters = {}
+export const getters = {
+  authenticated(state){
+    return state.loggedIn;
+  },
+  user(state){
+    return state.user;
+  },
+  token(state){
+    return state.token; 
+  }
+}
 
 export const mutations = {
   setUser (state, { user }) {
@@ -50,8 +60,9 @@ export const actions = {
             }
           })
         } catch (err) {
-          // console.log(err);
+          console.log(err);
         }
+      commit('setToken',{ token:cookieparser.parse(req.headers.cookie).token});
       commit('setUser',user);
     }
   }
