@@ -3,15 +3,6 @@
         <div class="col-md-8 mx-auto">
             <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
             <Canvas @getData="postData" />
-            {{followers}}
-            <p v-for="follower in followers" :key="follower.id">
-                    {{follower.name}}
-            </p>
-            <select name="followers">
-                <option v-for="follower in followers" :key="follower.id" :value="follower.screen_name">
-                    {{follower.name}}
-                </option>
-            </select>
         </div>
     </div>
 </template>
@@ -24,37 +15,15 @@ export default {
     },
     data(){
         return{
-            post:'',
-            followers:[]
+            post:[],
         }
     },
     async asyncData({route,$axios,store}){
         const id = route.params.id;
-        let token = 'Bearer ' + store.getters.token;
-        let headers = {
-            data:{},
-            headers:{
-                "Authorization" :token,
-                "Content-Type" : "application/json",
-                "Accept" : "application/json"
-            },
+        let data = await $axios.$get(`tables/${id}/post`);
+        return{
+            post:data
         }
-            await $axios.$get('/user/followers',headers).then( res => {
-                console.log(res);
-                return{
-                    followers:res.followers
-                }
-            }).catch( err => {
-                console.log(err);
-            });
-
-            await $axios.$get(`tables/${id}/post`).then( res => {
-                return{
-                    post:res
-                }
-            }).catch( err => {
-                console.log(err);
-            });
     },
     methods:{
         async postData(data) {
@@ -70,8 +39,9 @@ export default {
                     "Accept" : "application/json"
                 }
             }
+            const id = route.params.id + 1;
             await this.$axios.$post('/posts',req,headers).then(res => {
-                console.log(res);
+                this.$router.push(`/tweet/${id}`)
             }).catch(err=>{
                 console.log(err.response);
             });
