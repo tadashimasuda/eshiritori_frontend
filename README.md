@@ -1,20 +1,62 @@
-# eshiritori_frontend
+# README Frontend(SSR)
 
-## Build Setup
+### Brontend
+Backend( [github]:https://github.com/tadashimasuda/eshiritori-backned )
 
-```bash
-# install dependencies
-$ npm install
+## 作った理由
+   - Twitterカード（OGP）を使ったサービスを開発したかったため。
+   - 個人的にも使ってみたい技術が存在したため（Twitter連携、お絵かき機能Canvas).
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## アプリ概要
+   ツイッター上で絵しりとりができるサービス
+1. ツイートで指定されたユーザーはアプリにアクセス
+2. NuxtからLaravelのAPIを実行
+3. AWS S3への投稿（描画された絵）された画像の保存
+4. Twitter API(OAuth)によってユーザー情報の取得（Laravel Socialite)
+5. Twitter APIからユーザーのフォロワー取得
+6. 設置済みのツイートリンクからツイート
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+![eshiritori](https://user-images.githubusercontent.com/51233312/103135556-6c714e80-46fc-11eb-9137-671742be94b7.png)
 
-# generate static project
-$ npm run generate
-```
+## 機能
+- ログイン機能
+- 新規登録機能
+- ユーザー情報編集機能
+- ユーザー詳細（プロフィール、投稿した絵、主催したテーブル）
+- ユーザー一覧（画家一覧）
+- テーブル作成機能
+- テーブル閉鎖機能（編集）
+- テーブル一覧
+- テーブル詳細
+- 絵コンテンツ投稿機能
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 注力した点
+- Vuexのリロード対策
+    - 状態管理Vuexはリロードしてしまうと保持していたユーザー情報などのデータが消えてしまうことにクッキーにtokenを保存し、消えても取得できるようにした。
+    
+- Twitterログイン
+    - Twitterログインを
+## 使用した言語、技術、サービス
+- 言語
+    - Frontend : Nuxt.js
+    - Backend : Laravel
+
+- DB
+    - Mysql
+
+- 技術
+    - 認証周り
+        Laravel　Socialite,Passport
+    
+    - Cors
+        laravel-cors
+    
+    - フォロワー取得
+        abraham/twitteroauth(Twitter API)
+
+- サービス
+    - ストレージサービス
+        AWS S3
+        
+## 実装予定
+- いいね機能、お気に入り機能、通知機能
