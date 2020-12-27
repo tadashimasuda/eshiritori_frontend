@@ -6,6 +6,9 @@ ul,li{
     width: 95%;
     margin: 0 auto;
 }
+body{
+    background-color: #F4F1EC;
+}
 /* 
 header
 */
@@ -101,6 +104,7 @@ div#twitter_login_btn{
 }
 
 div#top_tables,#top_posts{
+    background-color: #fff;
     width: 100%;
     margin-top: 20px;
     white-space:nowrap;
@@ -113,6 +117,7 @@ div#top_tables,#top_posts{
     margin-top: 30px;
 }
 div.top_table,.top_post{
+    background-color: #fff;
     height: 270px;
     width: 360px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
@@ -168,6 +173,7 @@ div#table{
     margin: 0 auto;
     margin-top: 20px;
     box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+    background-color: #fff;
 }
 
 /* users */
@@ -175,6 +181,7 @@ div#users{
     width: 100%;
 }
 div.user{
+    background-color: #fff;
     margin-bottom: 20px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
 }
@@ -220,7 +227,29 @@ div.owner img{
     transform: translate(0, 0);
   }
 
-
+  /* user page */
+  .user_wapper,.user_inner{
+    width: 95%;
+    margin: 0 auto;
+}
+.user_inner{
+    background-color: #fff;
+}
+#user_user_profile{
+    text-align: center;
+}
+.user_posts{
+    background-color: #F4F1EC;
+}
+.user_post{
+    margin-top: 20px;
+}
+.user_post img{
+    width: 100%;
+    /* border: 1px solid black; */
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    
+}
 
 /* 544 以上*/
 @media(min-width:544px){
@@ -250,6 +279,10 @@ div.owner img{
     }
     .table_show{
         width: 500px;
+        margin: 0 auto;
+    }
+    .user_wapper{
+        width: 1050px;
         margin: 0 auto;
     }
 }
