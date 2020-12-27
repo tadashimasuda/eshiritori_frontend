@@ -1,0 +1,78 @@
+
+ul,li{
+    list-style: none;
+}
+/* 
+header
+*/
+header{
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+    position: relative;
+}
+header #header_container {
+    width: 100%;
+    margin: 0 auto;
+}
+ header h1#title{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    line-height: 60px;
+}
+
+div#menu_icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 15px 15px;
+}
+div#menu{
+    background-color: #fff;
+    width: 80%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 120%;
+}
+
+/* 
+header menu
+*/
+#menu_user{
+    text-align: center;
+    width: 100%;
+    min-height: 100px;
+    padding: 20px 10px 15px 0px;
+    border-bottom: 1px solid #000;
+}
+#menu_user_name{
+    margin-top: 20px;
+    font-size: 20px;
+}
+#menu_user_img{
+    height: 60px;
+    width: 60px;
+    margin:0 auto;
+}
+#menus ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#menus ul li{
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+.menu_link {
+    color: black;
+}
+
+/* 544 以上*/
+@media(min-width:544px){
+}
