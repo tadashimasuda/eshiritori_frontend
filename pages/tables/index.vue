@@ -1,21 +1,23 @@
 <template>
-    <div class="container">
-        <div class="cards mt-3 row mx-auto col-md-10">
-          <div class="card mr-2 mt-2" style="width: 18rem;" v-for="table in tables" :key="table.id">
-            <nuxt-link :to ="`/tables/${table.id}`">
-                <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" width="100%" height="180" alt="">
-            </nuxt-link>
-                <div class="pb-2">
-                    <h6 class="ml-2 mt-2 user_name">{{table.name}}</h6>
-                    <span class="ml-2">主催者：</span>
-                    <nuxt-link :to="`/users/${table.owner.id}`">
-                        <img :src="table.owner.img_path" width="22" height="22" alt="" >
-                        <span>{{table.owner.name}}</span>
-                    </nuxt-link>
+    <div class="tables_wapper">
+        <h3 id="tables_title">テーブル一覧</h3>
+        <div id="tables">
+            <div id="table" v-for="table in tables" :key="table.id">
+                <div class="post_image">
+                <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
                 </div>
-          </div>
+                <p>{{table.name}}</p>
+                <div class="post_user">
+                <div class="user_img">
+                    <img :src="`${table.owner.img_path}`" alt="">
+                    <nuxt-link to="/" class="user_name">主催者：{{table.owner.name}}</nuxt-link>
+                </div>
+                <p>12月12日</p>
+                </div>
+            </div>
+            <div class="cb"></div>
         </div>
-    </div>
+        </div>
 </template>
 
 <script>
@@ -27,6 +29,7 @@ export default {
     },
     async asyncData({$axios}){
         let { data } = await $axios.$get('/tables');
+        console.log(data);
         return{
             tables:data
         }

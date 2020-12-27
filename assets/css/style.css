@@ -100,7 +100,7 @@ div#twitter_login_btn{
     border-radius: 3px;
 }
 
-div#tables,#posts{
+div#top_tables,#top_posts{
     width: 100%;
     margin-top: 20px;
     white-space:nowrap;
@@ -112,7 +112,7 @@ div#tables,#posts{
     font-size: 20px;
     margin-top: 30px;
 }
-div.table,.post{
+div.top_table,.top_post{
     height: 270px;
     width: 360px;
     box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
@@ -151,7 +151,44 @@ div.table,.post{
     text-align: right;
     margin-bottom: 2px;
 }
-
+/* tables */
+.tables_wapper{
+    width: 96%;
+    margin: 0 auto;
+}
+#tables{
+    width: 100%;
+}
+#tables_title{
+    text-align: center;
+    margin: 40px 0;
+}
+div#table{
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+}
 /* 544 以上*/
 @media(min-width:544px){
+/* tables */
+    #tables{
+        width: 960px;
+        height: auto;
+        /* display: flex; */
+        margin: 0 auto;
+    }
+    .tables_wapper{
+        width: 960px;
+        margin: 0 auto;
+    }
+    div#table{
+        /* flex-wrap: wrap;  */
+        float: left;
+        width: 360px;
+        margin-left: 90px;
+    }
+    .cb{
+        clear: both;
+    }
 }

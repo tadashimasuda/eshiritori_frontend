@@ -10,8 +10,8 @@
     <div class="wapper">
       <div class="main">
         <h3 class="top_main_title">最近投稿された絵</h3>
-        <div id="posts">
-          <div class="post"  v-for="post in posts" :key="post.id">
+        <div id="top_posts">
+          <div class="top_post"  v-for="post in posts" :key="post.id">
             <div class="post_image">
               <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="テーブル画像">
             </div>
@@ -25,8 +25,8 @@
           </div>
         </div>
         <h3 class="top_main_title">最近更新されたテーブル</h3>
-        <div id="tables">
-        <div class="table" v-for="table in tables" :key="table.id">
+        <div id="top_tables">
+        <div class="top_table" v-for="table in tables" :key="table.id">
             <div class="post_image">
               <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
             </div>
