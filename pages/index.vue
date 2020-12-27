@@ -1,8 +1,14 @@
 <template>
-  <div class="container">
-    <div class="top">
+  <div>
+    <div id="top">
+      <h2>Twitterで絵しりとりできるサービス</h2>
+      <div id="twitter_login_btn">
+        <i class="fab fa-twitter fa-lg"></i>
+        <span>Twitterでログイン</span>
+      </div>
     </div>
-    <div class="contents mt-5">
+    <div class="wapper">
+    <!-- <div class="contents mt-5">
       <div class="tables">
         <h2>最近更新されたテーブル</h2>
         <div class="tables cards d-flex flex-row">
@@ -23,8 +29,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
+</div>
+  
 </template>
 
 <script>
@@ -47,15 +55,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.top{
-  height: 300px;
-}
-.cards{
-  overflow-x: auto;
-}
-.card{
-  flex: 0 0 300px;
-}
-</style>

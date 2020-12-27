@@ -46,7 +46,7 @@ import { mapMutations } from 'vuex'
 export default {
   data(){
     return {
-      menu:true
+      menu:false
     }
   },
   methods: mapMutations(['deleteToken']),

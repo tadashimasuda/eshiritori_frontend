@@ -2,6 +2,10 @@
 ul,li{
     list-style: none;
 }
+.wapper{
+    width: 96%;
+    margin: 0 auto;
+}
 /* 
 header
 */
@@ -71,6 +75,29 @@ header menu
 }
 .menu_link {
     color: black;
+}
+
+/* 
+toppage index.vue
+*/
+div#top{
+    background-image: url('../images/bg_colorful.png');
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+div#top h2{
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 50px;
+}
+div#twitter_login_btn{
+    margin-top: 50px;
+    background-color: #00acee;
+    display: inline-block;
+    padding: 8px 8px;
+    color: #fff;
+    border-radius: 3px;
 }
 
 /* 544 以上*/
