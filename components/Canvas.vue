@@ -1,22 +1,24 @@
 <template>
 <div>
-  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="500" height="300" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
-  <div class="option">
-    <div class="button_option">
+  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="360px" height="180px" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
+  <div id="option">
+    <div id="color_option">
       <button type="button" class="btn rounded-circle p-0 black" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,0, 1"'></button>
       <button type="button" class="btn rounded-circle p-0 red" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="255, 0, 0, 1"'></button>
       <button type="button" class="btn rounded-circle p-0 green" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 180, 0, 1"'></button>
       <button type="button" class="btn rounded-circle p-0 yellow" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="255, 255, 0, 1"'></button>
       <button type="button" class="btn rounded-circle p-0 blue" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,255, 1"'></button>
     </div>
-    <div class="bold">
+    <div id="bold_option">
       <button type="button" class="small btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "1"'>小</button>
       <button type="button" class="middle btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "5"'>中</button>
       <button type="button" class="large btn rounded-0 border" style="width:3rem;height:3rem;" @click.prevent='cnvBold = "10"'>大</button>
     </div>
   </div>
-  <button class="clear" @click.prevent="clear()">clear</button>
-  <button class="submit" @click.prevent="submit()">submit</button>
+  <div id="btn">
+    <button type="button" id="clear" @click.prevent="clear()">消す</button>
+    <button type="button" id="submit" @click.prevent="submit()">投稿</button>
+  </div>
 </div>
 </template>
 
@@ -80,6 +82,29 @@ export default {
 </script>
 
 <style>
+button#clear,button#submit{
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: none;
+  color: #fff;
+  margin-top: 10px;
+}
+button#clear{
+  background-color: blue;
+}
+button#submit{
+  background-color: orange;
+}
+  #color_option,#bold_option{
+    margin-top: 15px;
+  }
+  #btn{
+    margin-top: 15px;
+  }
+  #option{
+    margin-top: 15px;
+  }
   .color > a{
     display: inline-block;
     width: 20px;
@@ -99,5 +124,12 @@ export default {
   }
   .yellow{
     background-color: #FFD400;
+  }
+
+  @media(min-width:544px){
+    .create_table_box{
+      width: 900px;
+      margin: 0 auto;
+    }
   }
 </style>

@@ -266,6 +266,20 @@ div.owner img{
     max-width: 450px;
     border-top: 1px solid #000;
 }
+.create_table_box h2{
+    text-align: center;
+    margin-top: 20px;
+}
+#form{
+    margin-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+#form > #table_name{
+    text-align: center;
+}
+
 /* 544 以上*/
 @media(min-width:544px){
 /* tables */

@@ -1,16 +1,14 @@
 <template>
-    <div class="container">
-        <div class="col-md-10 mx-auto text-center">
+    <div class="wapper">
+        <div class="create_table_box">
             <h2>テーブルを作成する</h2>
-            <div class="form ">
+            <div id="form" >
                 <form> 
                     <label for="table_name">テーブル名：</label>
                     <input v-model="name" type="text" id="table_name">
-                    <small v-if="errors.name">{{errors.name[0]}}</small>
                     <Canvas @getData="postData" />
                 </form>
             </div>
- 
         </div>
     </div>
 </template>
