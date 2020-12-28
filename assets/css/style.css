@@ -7,7 +7,8 @@ ul,li{
     margin: 0 auto;
 }
 body{
-    background-color: #F4F1EC;
+    /* background-color: #F4F1EC; */
+    background-color: #fff;
 }
 /* 
 header
@@ -238,19 +239,33 @@ div.owner img{
 #user_user_profile{
     text-align: center;
 }
+#user_user_profile img{
+    margin-top: 30px;
+}
+#user_user_profile > .user_name{
+    margin-top: 20px;
+}
 .user_posts{
-    background-color: #F4F1EC;
+    background-color: #fff;
 }
 .user_post{
     margin-top: 20px;
 }
 .user_post img{
     width: 100%;
-    /* border: 1px solid black; */
+    max-width: 450px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    
 }
+.user_owner_table{
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    margin-top: 20px;
 
+}
+.user_owner_table img{
+    width: 100%;
+    max-width: 450px;
+    border-top: 1px solid #000;
+}
 /* 544 以上*/
 @media(min-width:544px){
 /* tables */
