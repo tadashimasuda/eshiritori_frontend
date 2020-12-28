@@ -1,0 +1,363 @@
+
+ul,li{
+    list-style: none;
+}
+.wapper{
+    width: 95%;
+    margin: 0 auto;
+}
+body{
+    /* background-color: #F4F1EC; */
+    background-color: #fff;
+}
+/* 
+header
+*/
+header{
+    height: 60px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+    position: relative;
+}
+header #header_container {
+    width: 100%;
+    margin: 0 auto;
+}
+ header h1#title{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    line-height: 60px;
+}
+
+div#menu_icon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 15px 15px;
+}
+div#menu{
+    background-color: #fff;
+    width: 80%;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 120%;
+}
+
+/* 
+header menu
+*/
+#menu_user{
+    text-align: center;
+    width: 100%;
+    min-height: 100px;
+    padding: 20px 10px 15px 0px;
+    border-bottom: 1px solid #000;
+}
+#menu_user_name{
+    margin-top: 20px;
+    font-size: 20px;
+}
+#menu_user_img{
+    height: 60px;
+    width: 60px;
+    margin:0 auto;
+}
+#menus ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#menus ul li{
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+.menu_link {
+    color: black;
+}
+
+/* 
+toppage index.vue
+*/
+div#top{
+    background-image: url('../images/bg_colorful.png');
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+div#top h2{
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 50px;
+}
+div.twitter_login_btn{
+    margin-top: 50px;
+    background-color: #00acee;
+    display: inline-block;
+    padding: 8px 8px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+div#top_tables,#top_posts{
+    background-color: #fff;
+    width: 100%;
+    margin-top: 20px;
+    white-space:nowrap;
+    overflow:scroll;
+    display: flex;
+}
+.top_main_title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+}
+div.top_table,.top_post{
+    background-color: #fff;
+    height: 270px;
+    width: 360px;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.post_image{
+    width: 350px;
+    height: 200px;
+    margin: 0 auto;
+}
+.post_image img{
+    width: 350px;
+    height: 200px;
+    margin-top: 10px;
+    
+}
+.post_user{
+    width: 350px;
+    margin: 0 auto;
+}
+.user_img{
+    display: inline-block;
+}
+.user_img img{
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+.user_name{
+    margin-left: 10px;
+    font-size: 25px;
+}
+.post_user p{
+    text-align: right;
+    margin-bottom: 2px;
+}
+/* tables */
+.tables_wapper{
+    width: 96%;
+    margin: 0 auto;
+}
+#tables{
+    width: 100%;
+}
+#tables_title,#users_title,#owner_title{
+    text-align: center;
+    margin: 40px 0;
+}
+div#table{
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+    background-color: #fff;
+}
+
+/* users */
+div#users{
+    width: 100%;
+}
+div.user{
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+/* /table/${id} */
+div.owner{
+    text-align: center;
+}
+div.owner img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+#table_post{
+    width: 100%;
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+#table_post_user{
+    height: 35px;
+    width: 35px;
+}
+#user_post img{
+    width: 100%;
+}
+  
+  .box{
+    width: 30px;
+    height: 100px;
+    background-color: orange;
+    margin: 0 auto;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition-duration: 500ms;
+    transition-property: opacity, transform;
+  }  
+  .fade-in-down {
+    transform: translate(0, -50px);
+  }
+  .scroll-in {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* user page */
+  .user_wapper,.user_inner{
+    width: 95%;
+    margin: 0 auto;
+}
+.user_inner{
+    background-color: #fff;
+}
+#user_user_profile{
+    text-align: center;
+}
+#user_user_profile img{
+    margin-top: 30px;
+}
+#user_user_profile > .user_name{
+    margin-top: 20px;
+}
+.user_posts{
+    background-color: #fff;
+}
+.user_post{
+    margin-top: 20px;
+}
+.user_post img{
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+.user_owner_table{
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    margin-top: 20px;
+
+}
+.user_owner_table img{
+    width: 100%;
+    max-width: 450px;
+    border-top: 1px solid #000;
+}
+.create_table_box h2{
+    text-align: center;
+    margin-top: 20px;
+}
+#form{
+    margin-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+#form > #table_name{
+    text-align: center;
+}
+#prev_post{
+    text-align: center;
+    margin-top: 50px;
+}
+#prev_post img{
+    width: 100%;
+    margin-top: 50px;
+}
+#post_canvas{
+    margin-top: 50px;
+    text-align: center;
+}
+.btn_page_title{
+    text-align: center;
+    margin-top: 100px;
+}
+.btn_page{
+    background-color: #00acee;
+    width: 180px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 8px 8px;
+    color: #fff;
+    border-radius: 3px;
+}
+#user_tweet{
+    text-align: center;
+}
+#user_tweet h3{
+    margin-top: 30px;
+}
+#user_tweet img{
+    width: 100%;
+}
+#followers{
+    margin-top: 20px;
+}
+#followers > select{
+    width: 100%;
+}
+#tweet_btn{
+    width: 200px;
+    background-color: #00acee;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: #fff;
+    padding: 8px 0;
+}
+/* 544 以上*/
+@media(min-width:544px){
+/* tables */
+    #tables{
+        width: 960px;
+        height: auto;
+        /* display: flex; */
+        margin: 0 auto;
+    }
+    .tables_wapper{
+        width: 960px;
+        margin: 0 auto;
+    }
+    div#table{
+        float: left;
+        width: 360px;
+        margin-left: 90px;
+    }
+    .cb{
+        clear: both;
+    }
+    div#users{
+        width: 660px;
+        margin: 0 auto;
+    }
+    .table_show{
+        width: 500px;
+        margin: 0 auto;
+    }
+    .user_wapper{
+        width: 1050px;
+        margin: 0 auto;
+    }
+}

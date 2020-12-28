@@ -1,13 +1,21 @@
 <template>
-<div>
-    <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
-    <select name="followers" v-model="select_follower">
-        <option  v-for="follower in followers" :key="follower.id" :value="follower.screen_name">
-            {{follower.name}}(@ {{follower.screen_name}})
-        </option>    
-    </select>
-    <p v-if="select_follower">指名されたフォロワー：{{select_follower}}</p>
-    <button type="button" class="btn">Tweet</button>
+<div class="wapper">
+    <div id="user_tweet">
+        <h3>ツイートする</h3>
+        <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
+        <div id="followers">
+            <select name="followers" v-model="select_follower">
+                <option  v-for="follower in followers" :key="follower.id" :value="follower.screen_name">
+                    {{follower.name}}(@ {{follower.screen_name}})
+                </option>    
+            </select>
+        </div>
+        <p v-if="select_follower">指名されたフォロワー：{{select_follower}}</p>
+        <div id="tweet_btn">
+            <i class="fab fa-twitter fa-lg"></i>
+            <span>ツイート</span>
+        </div>
+    </div>
 </div>
 </template>
 
