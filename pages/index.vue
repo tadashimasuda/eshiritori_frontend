@@ -2,7 +2,7 @@
   <div>
     <div id="top">
       <h2>Twitterで絵しりとりできるサービス</h2>
-      <div id="twitter_login_btn">
+      <div class="twitter_login_btn">
         <i class="fab fa-twitter fa-lg"></i>
         <span>Twitterでログイン</span>
       </div>
