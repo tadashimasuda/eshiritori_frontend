@@ -1,7 +1,10 @@
 <template>
-    <div class="container">
-        <div class="col-md-8 mx-auto">
+    <div class="wapper">
+        <div id="prev_post">
+            <h4>この絵の次を書いてください</h4>
             <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
+        </div>
+        <div id="post_canvas">
             <Canvas @getData="postData" />
         </div>
     </div>

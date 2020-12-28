@@ -279,7 +279,18 @@ div.owner img{
 #form > #table_name{
     text-align: center;
 }
-
+#prev_post{
+    text-align: center;
+    margin-top: 50px;
+}
+#prev_post img{
+    width: 100%;
+    margin-top: 50px;
+}
+#post_canvas{
+    margin-top: 50px;
+    text-align: center;
+}
 /* 544 以上*/
 @media(min-width:544px){
 /* tables */
@@ -294,7 +305,6 @@ div.owner img{
         margin: 0 auto;
     }
     div#table{
-        /* flex-wrap: wrap;  */
         float: left;
         width: 360px;
         margin-left: 90px;
