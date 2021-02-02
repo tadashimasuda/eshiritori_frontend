@@ -17,6 +17,9 @@
             <template v-if="user">
               <img :src="user.img_path" alt="ユーザー画像" id="menu_user_img">
               <h3 id="menu_user_name">{{user.name}}</h3>
+                <p id="user_edit_btn">
+                   <nuxt-link to='/'><i class="fas fa-pen"></i>ユーザー情報編集</nuxt-link>
+                </p>
             </template>
           </div>
           <div id="menus">
