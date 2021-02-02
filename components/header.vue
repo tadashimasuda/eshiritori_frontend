@@ -2,7 +2,7 @@
   <div>
       <header>
         <div id="header_container">
-          <div class="header_title">
+          <div id="header_title">
             <h6 id="title">Title</h6>
           </div>
           <div id="menu_icon" @click="menu =!menu">
@@ -21,19 +21,26 @@
           </div>
           <div id="menus">
             <ul>
-              <li id="menu_top" @click="menu = !menu">
-                <nuxt-link to="/" @click="menu = !menu" class="menu_link">TOP</nuxt-link>
-              </li>
               <li id="menu_tables" @click="menu = !menu">
-                <nuxt-link to="/tables" @click="menu = !menu" class="menu_link">テーブル一覧</nuxt-link>
+                <p>
+                  <nuxt-link to="/tables" @click="menu = !menu" class="menu-link"><i class="fas fa-images menu-icon"></i>テーブル一覧</nuxt-link>
+                </p>
               </li>
               <li id="menu_users" @click="menu = !menu">
-                <nuxt-link to="/users" @click="menu = !menu" class="menu_link">画家一覧</nuxt-link>
+                <p>
+                  <nuxt-link to="/users" @click="menu = !menu" class="menu-link"><i class="fas fa-users menu-icon"></i>ユーザー一覧</nuxt-link>
+                </p>
               </li>
               <li id="menu_login" @click="menu = !menu">
-                <nuxt-link to="/oauth/twitter/redirect" class="menu_link">LOGIN</nuxt-link>
+                <p>
+                  <nuxt-link to="/oauth/twitter/redirect" class="menu-link"><i class="fas fa-sign-in-alt menu-icon"></i>ログイン</nuxt-link>
+                </p>
               </li>
-              <li id="menu_logout" @click="deleteToken(); menu = !menu" class="menu_link">LOGOUT</li>
+              <li id="menu_logout" @click="deleteToken(); menu = !menu" class="menu-link">
+                <p>
+                  <i class="fas fa-sign-out-alt menu-icon"></i>ログアウト
+                </p>
+              </li>
             </ul>
           </div>
         </div>

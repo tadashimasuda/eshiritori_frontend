@@ -50,29 +50,40 @@ header menu
 #menu_user{
     text-align: center;
     width: 100%;
-    min-height: 100px;
-    padding: 20px 10px 15px 0px;
+    height: 200px;
     border-bottom: 1px solid #000;
 }
+#menu_user_img{
+    height: 75px;
+    width: 75px;
+    margin:0 auto;
+    margin-top: 40px;
+    border-radius: 1em;
+}
 #menu_user_name{
-    margin-top: 20px;
+    margin-top: 18px;
     font-size: 20px;
 }
-#menu_user_img{
-    height: 60px;
-    width: 60px;
-    margin:0 auto;
-}
 #menus ul {
-    text-align: center;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 #menus ul li{
     padding: 20px 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fafafa;
 }
-.menu_link {
+.menu-icon{
+    margin-right: 8px;
+    color: black;
+}
+#menu_login p{
+    padding-right: 32px;
+}
+#menu_logout p{
+    padding-right: 10px;
+}
+.menu-link {
     color: black;
 }
 
