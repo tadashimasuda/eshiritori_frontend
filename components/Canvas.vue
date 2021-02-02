@@ -23,8 +23,6 @@
 </template>
 
 <script>
-import Vue2TouchEvents from 'vue2-touch-events'
-
 export default {
     data(){
       return{
@@ -48,8 +46,10 @@ export default {
         this.ctx.fillRect(0,0,this.cnvWidth,this.cnvHeight);
     },
     methods: {
-        TouchStart: function() {
+        TouchStart: function(e) {
             this.clickFlg = 1;
+            //縦スクロール停止
+             e.preventDefault()
         },
         TouchEnd: function() {
             this.clickFlg = 0;
@@ -79,7 +79,7 @@ export default {
             //レスポンシブでのoffetX,Y
             const rect = e.target.getBoundingClientRect()
             const offsetX = (e.touches[0].clientX - window.pageXOffset - rect.left) 
-            const offsetY = (e.touches[0].clientY - window.pageYOffset - rect.top)
+            const offsetY = (e.touches[0].clientY  - rect.top)
             if (this.clickFlg == "1") {
                 this.clickFlg = "2";
                 this.ctx.beginPath();
