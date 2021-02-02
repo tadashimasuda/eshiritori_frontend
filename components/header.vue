@@ -3,7 +3,7 @@
       <header>
         <div id="header_container">
           <div class="header_title">
-            <h1 id="title">えしりとり</h1>
+            <h6 id="title">Title</h6>
           </div>
           <div id="menu_icon" @click="menu =!menu">
             <i class="fas fa-bars fa-lg" v-if="!menu"></i>

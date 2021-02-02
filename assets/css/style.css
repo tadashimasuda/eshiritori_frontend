@@ -1,4 +1,3 @@
-
 ul,li{
     list-style: none;
 }
@@ -7,37 +6,33 @@ ul,li{
     margin: 0 auto;
 }
 body{
-    /* background-color: #F4F1EC; */
     background-color: #fff;
 }
-/* 
-header
-*/
+/* header */
 header{
-    height: 60px;
+    height: 56px;
     width: 100%;
     background-color: #fff;
-    box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 5px 2px rgba(0,0,0,0.1);
     position: relative;
 }
 header #header_container {
     width: 100%;
     margin: 0 auto;
 }
- header h1#title{
+header h6#title{
     width: 100%;
     text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: normal;
     color: black;
-    line-height: 60px;
+    line-height: 56px;
 }
 
 div#menu_icon{
     position: absolute;
-    right: 5px;
-    top: 5px;
-    padding: 15px 15px;
+    right: 13px;
+    top: 15px;
 }
 div#menu{
     background-color: #fff;
