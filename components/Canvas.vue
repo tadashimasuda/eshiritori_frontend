@@ -1,6 +1,6 @@
 <template>
 <div>
-  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="360px" height="180px" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
+  <canvas id="canvas" ref="canvas" v-on:mousedown="TouchStart" v-on:touchstart="TouchStart" v-on:mouseup="TouchEnd" v-touch:end="TouchEnd" v-on:mousemove="MouseMove" v-on:touchmove="TouchMove" width="360px" height="180px" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
   <div id="option">
     <div id="color_option">
       <button type="button" class="btn rounded-circle p-0 black" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,0, 1"'></button>
@@ -38,25 +38,28 @@ export default {
         // canvas
         let cnvs = null;
         cnvs = this.$refs.canvas;
+
         const ctx = null;
         this.ctx = cnvs.getContext('2d');
 
         this.ctx.fillStyle = this.bgColor;
         this.ctx.fillRect(0,0,this.cnvWidth,this.cnvHeight);
-
-       
     },
     methods: {
-        MouseDown: function() {
+        TouchStart: function(e) {
             this.clickFlg = 1;
+            //縦スクロール停止
+             e.preventDefault()
         },
-        MouseUp: function() {
+        TouchEnd: function() {
             this.clickFlg = 0;
         },
         MouseMove: function(e){
             if(!this.clickFlg) return false;
+
             this.ctx.lineWidth = this.cnvBold;
             this.ctx.strokeStyle = 'rgba('+this.cnvColor+')';
+
             if (this.clickFlg == "1") {
                 this.clickFlg = "2";
                 this.ctx.beginPath();
@@ -64,6 +67,26 @@ export default {
                 this.ctx.moveTo(e.offsetX,e.offsetY);
             } else {
                 this.ctx.lineTo(e.offsetX,e.offsetY);
+            }
+          this.ctx.stroke();
+        },
+        TouchMove: function(e){
+            if(!this.clickFlg) return false;
+
+            this.ctx.lineWidth = this.cnvBold;
+            this.ctx.strokeStyle = 'rgba('+this.cnvColor+')';
+
+            //レスポンシブでのoffetX,Y
+            const rect = e.target.getBoundingClientRect()
+            const offsetX = (e.touches[0].clientX - window.pageXOffset - rect.left) 
+            const offsetY = (e.touches[0].clientY  - rect.top)
+            if (this.clickFlg == "1") {
+                this.clickFlg = "2";
+                this.ctx.beginPath();
+                this.ctx.lineCap = "round";  //　線を角丸にする
+                this.ctx.moveTo(offsetX,offsetY);
+            } else {
+                this.ctx.lineTo(offsetX,offsetY);
             }
           this.ctx.stroke();
         },
