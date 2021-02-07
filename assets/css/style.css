@@ -172,13 +172,13 @@ div.top-post{
 }
 .post-user p{
     text-align: right;
-    margin-bottom: 2px;
+    /* padding-bottom: 5px; */
 }
 #post_created_at{
     padding-right: 5px;
 }
 /* tables */
-.tables_wapper{
+#tables_wapper{
     width: 96%;
     margin: 0 auto;
 }
@@ -193,8 +193,11 @@ div#table{
     width: 350px;
     margin: 0 auto;
     margin-top: 20px;
-    box-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
     background-color: #fff;
+}
+div.post-image{
+    width: 100%;
 }
 
 /* users */
@@ -356,7 +359,7 @@ transform: translate(0, 0);
         /* display: flex; */
         margin: 0 auto;
     }
-    .tables_wapper{
+    #tables_wapper{
         width: 960px;
         margin: 0 auto;
     }
