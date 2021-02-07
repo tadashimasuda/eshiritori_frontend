@@ -3,14 +3,16 @@
         <!-- <h3 id="tables_title">テーブル一覧</h3> -->
         <div id="tables">
             <div id="table" v-for="table in tables" :key="table.id">
-                <div class="post-image">
-                    <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
-                </div>
+                <nuxt-link :to="`/tables/${table.id}`">
+                    <div class="post-image">
+                        <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
+                    </div>
+                </nuxt-link>
                 <p>{{table.name}}</p>
                 <div class="post-user">
                     <div class="user-img">
                         <img :src="`${table.owner.img_path}`" alt="">
-                        <nuxt-link to="/" class="user-name">主催者：{{table.owner.name}}</nuxt-link>
+                        <nuxt-link :to="`/users/${table.owner.id}`" class="user-name">主催者：{{table.owner.name}}</nuxt-link>
                     </div>
                     <p>{{table.created_at}}</p>
                 </div>
