@@ -42,7 +42,6 @@ export default {
       $axios.$get('/tables',{params:{'top':'top'}}),
       $axios.$get('/posts',{params:{'top':'top'}})
     ]);
-    console.log(postsData);
     return{
       tables:tablesData.data,
       posts:postsData.data

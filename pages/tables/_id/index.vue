@@ -46,7 +46,6 @@ export default {
     },
     mounted(){
         let fadeInTarget = document.querySelectorAll('.fade-in');
-        console.log(fadeInTarget);
         window.addEventListener('scroll', () => {
         for (let i = 0; i < fadeInTarget.length; i++){
             const rect = fadeInTarget[i].getBoundingClientRect().top;

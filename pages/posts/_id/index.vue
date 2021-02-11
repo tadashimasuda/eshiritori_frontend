@@ -34,7 +34,6 @@ export default {
                 table_id : this.post.table_id,
                 image : encode_data
             }
-            console.log(encode_data);
             let token = 'Bearer ' + this.$store.getters.token;
             let headers = {
                 headers:{
@@ -44,7 +43,6 @@ export default {
                 }
             }
             await this.$axios.$post('/posts',req,headers).then(res => {
-                console.log(res.post_id);
                 this.$router.push(`/tweet/${res.post_id}`)
             }).catch(err=>{
                 console.log(err.response);
