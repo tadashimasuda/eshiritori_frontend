@@ -1,6 +1,6 @@
 <template>
 <div>
-  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="360px" height="180px" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
+  <canvas id="canvas" ref="canvas" v-on:mousedown="MouseDown" v-on:mouseup="MouseUp" v-on:mousemove="MouseMove" width="400px" height="200px" style="border: solid 1px #000;box-sizing: border-box;"></canvas>
   <div id="option">
     <div id="color_option">
       <button type="button" class="btn rounded-circle p-0 black" style="width:3rem;height:3rem;" @click.prevent='cnvColor ="0, 0,0, 1"'></button>
@@ -74,8 +74,8 @@ export default {
         },
         submit:function(){
           let cnvs = this.$refs.canvas;
-          let data = cnvs.toDataURL();
-          this.$emit('getData', data);
+          let encode_data = cnvs.toDataURL();
+          this.$emit('getData', encode_data);
         }
     }
 }

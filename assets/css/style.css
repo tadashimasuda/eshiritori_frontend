@@ -328,6 +328,8 @@ transform: translate(0, 0);
 #prev_post{
     text-align: center;
     margin-top: 50px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 #prev_post img{
     width: 100%;

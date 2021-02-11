@@ -22,18 +22,19 @@ export default {
         }
     },
     async asyncData({route,$axios,store}){
-        const id = route.params.id;
+        const id = route.params.id
         let data = await $axios.$get(`tables/${id}/post`);
         return{
             post:data
         }
     },
     methods:{
-        async postData(data) {
+        async postData(encode_data) {
             let req = {
                 table_id : this.post.table_id,
-                image : data
+                image : encode_data
             }
+            console.log(encode_data);
             let token = 'Bearer ' + this.$store.getters.token;
             let headers = {
                 headers:{
@@ -42,9 +43,10 @@ export default {
                     "Accept" : "application/json"
                 }
             }
-            const id = route.params.id + 1;
+            const next_id = Number(this.$route.params.id)+1
+            console.log(next_id);
             await this.$axios.$post('/posts',req,headers).then(res => {
-                this.$router.push(`/tweet/${id}`)
+                this.$router.push(`/tweet/${next_id}`)
             }).catch(err=>{
                 console.log(err.response);
             });
