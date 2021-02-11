@@ -3,7 +3,7 @@
       <header>
         <div id="header_container">
           <div id="header_title">
-            <h6 id="title">Title</h6>
+            <nuxt-link to="/"><h6 id="title">Title</h6></nuxt-link>
           </div>
           <div id="menu_icon" @click="menu =!menu">
             <i class="fas fa-bars fa-lg" v-if="!menu"></i>
@@ -18,7 +18,7 @@
               <img :src="user.img_path" alt="ユーザー画像" id="menu_user_img">
               <h3 id="menu_user_name">{{user.name}}</h3>
                 <p id="user_edit_btn">
-                   <nuxt-link to='/'><i class="fas fa-pen"></i>ユーザー情報編集</nuxt-link>
+                   <nuxt-link to='/'><i class="fas fa-user-edit"></i>ユーザー情報編集</nuxt-link>
                 </p>
             </template>
           </div>
