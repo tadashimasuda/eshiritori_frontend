@@ -44,7 +44,6 @@ export default {
                 }
             }
             await this.$axios.$post('/posts',req,headers).then(res => {
-                // this.$router.push(`/tweet/${next_id}`)
                 console.log(res.post_id);
                 this.$router.push(`/tweet/${res.post_id}`)
             }).catch(err=>{
