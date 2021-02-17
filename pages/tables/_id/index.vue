@@ -3,16 +3,16 @@
         <div class="table_show">
             <h3 id="owner_title">このテーブルを始めた人</h3>
             <div class="owner">
-                <img :src="tables.owner.img_path" alt="ユーザー画像">
-                <h4 class="owner_name">{{tables.owner.name}}</h4>
+                <img :src="table.owner.img_path" alt="ユーザー画像">
+                <h4 class="owner_name">{{table.owner.name}}</h4>
             </div>
             <div id="post-btn">
-                <nuxt-link :to="`/posts/${tables.id}`" id="post-btn-link">
+                <nuxt-link :to="`/posts/${table.id}`" id="post-btn-link">
                     <i class="fas fa-paint-brush fx-lg"></i>続きを描く
                 </nuxt-link>
             </div>
             <div id="posts">
-                <div v-for="post in tables.post" :key="post.id">
+                <div v-for="post in posts" :key="post.id">
                     <div class="fade-in fade-in-down table-post">
                         <div class="table-post-user">
                             <img :src="post.user.img_path" alt="ユーザー画像" class="table-post-user">
@@ -25,7 +25,6 @@
                     <div class="fade-in fade-in-down box"></div>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -34,14 +33,20 @@
 export default {
     data(){
         return{
-            tables:[]
+            table:[],
+            links:''
         }
     },
     async asyncData({route,$axios}){
         const id = route.params.id;
-        let { data } = await $axios.$get(`/tables/${id}`);
+        let [tableData,postsData] = await Promise.all([
+            $axios.$get(`/tables/${id}`),
+            $axios.$get('/posts',{params:{'table':id}})
+        ]);
         return{
-            tables:data
+            table:tableData.data,
+            posts:postsData.data,
+            links:postsData.links
         }
     },
     mounted(){
