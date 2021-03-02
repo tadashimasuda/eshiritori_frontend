@@ -11,8 +11,9 @@
                     <i class="fas fa-paint-brush fx-lg"></i>続きを描く
                 </nuxt-link>
             </div>
+            {{posts.length}}
             <div id="posts">
-                <div v-for="post in posts" :key="post.id">
+                <div v-for="post in this.posts" :key="post.id">
                     <div class="fade-in fade-in-down table-post">
                         <div class="table-post-user">
                             <img :src="post.user.img_path" alt="ユーザー画像" class="table-post-user">
@@ -25,16 +26,20 @@
                     <div class="fade-in fade-in-down box"></div>
                 </div>
             </div>
+            <template v-if="links.next">
+                <a @click="loadMore(links.next)" href="#">続きをみる</a>
+            </template>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    data(){
+    data({}){
         return{
             table:[],
-            links:''
+            posts:[],
+            links:'',
         }
     },
     async asyncData({route,$axios}){
@@ -46,7 +51,18 @@ export default {
         return{
             table:tableData.data,
             posts:postsData.data,
-            links:postsData.links
+            links:postsData.links,
+        }
+    },
+    methods:{
+        loadMore(link){
+            // let addPosts = this.$axios.$get(link)
+            // console.log(addPosts);
+            // this.posts　=　this.posts.concat(addPosts.data)
+            this.$axios.$get(link).then( res => {
+                console.log(res.data);
+                this.posts　=　this.posts.concat(res.data)
+            })
         }
     },
     mounted(){
