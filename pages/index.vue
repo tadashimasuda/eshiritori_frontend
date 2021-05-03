@@ -1,6 +1,6 @@
 <template>
-  <div class="wapper">
-    <div id="top">
+  <div class="wapper col-md-8">
+    <div id="top" class="mt-1">
       <h2>Twitterで絵しりとりできるサービス</h2>
       <div class="twitter-login-btn">
         <i class="fab fa-twitter fa-lg"></i>
@@ -39,8 +39,8 @@ export default {
   },
   async asyncData({$axios}){
     let [tablesData,postsData] = await Promise.all([
-      $axios.$get('/tables',{params:{'top':'top'}}),
-      $axios.$get('/posts',{params:{'top':'top'}})
+      $axios.$get('/tables',{params:{q:'top'}}),
+      $axios.$get('/posts',{params:{q:'top'}})
     ]);
     return{
       tables:tablesData.data,
