@@ -1,8 +1,8 @@
 <template>
 <div class="user_wapper">
     <div class="user_inner">
-        <div id="user_user_profile">
-            <img :src="userData.img_path" alt="" class="user_user_img">
+        <div id="user_user_profile" class="mt-5">
+            <img :src="userData.img_path" alt="" class="user_user_img rounded-circle" height="90px">
             <h4 class="user_name">{{userData.name}}</h4>
             <template v-if="userData.profile">
                 <h5>プロフィール：</h5>
@@ -14,11 +14,11 @@
             </a>
             </template>
         </div>
-    <div class="contents">
+    <div class="contents mx-5 mt-5 col-7 mx-auto">
         <b-tabs content-class="mt-3" justified>
             <b-tab title="投稿された絵" active>
                 <div class="user_posts">
-                    <div class="user_post" v-for="post in posts" :key="post.id">
+                    <div class="user_post mt-2 col-10 mx-auto" v-for="post in posts" :key="post.id">
                         <nuxt-link :to="`/tables/${post.table_id}`">
                             <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
                         </nuxt-link>
@@ -27,7 +27,7 @@
             </b-tab>
             <b-tab title="主催しているテーブル">
                 <div class="user_owner_tables">
-                    <div class="user_owner_table" v-for="table in tables" :key="table.id">
+                    <div class="user_owner_table col-10 mx-auto" v-for="table in tables" :key="table.id">
                         <span class="table_owner_name">テーブル名：{{table.name}}</span>
                         <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
                     </div>
@@ -53,21 +53,16 @@ export default {
     async asyncData({route,$axios}){
         const id = route.params.id;
 
-        let [ {data},tables] = await Promise.all([
+        let [{data},tables] = await Promise.all([
                 $axios.$get(`/users/${id}`),
                 $axios.$get(`/tables/${id}/user`)
             ]);
+            console.log(data.user);
             return{
                 userData:data.user,
                 posts:data.posts,
                 tables:tables.data,
             }
-        // let { data } = await $axios.$get(`/users/${id}`)
-        // return{
-        //     userData:data.user,
-        //     posts:data.posts,
-        //     tables:data.tables,
-        // }
     }
 }
 </script>
