@@ -26,19 +26,17 @@
                     <div class="fade-in fade-in-down box"></div>
                 </div>
             </div>
-            <template v-if="links.next">
-                <a @click="loadMore(links.next)" href="#">続きをみる</a>
-            </template>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    data({}){
+    data(){
         return{
             table:[],
             posts:[],
+            add_posts:[],
             links:'',
         }
     },
@@ -54,17 +52,7 @@ export default {
             links:postsData.links,
         }
     },
-    methods:{
-        loadMore(link){
-            // let addPosts = this.$axios.$get(link)
-            // console.log(addPosts);
-            // this.posts　=　this.posts.concat(addPosts.data)
-            this.$axios.$get(link).then( res => {
-                console.log(res.data);
-                this.posts　=　this.posts.concat(res.data)
-            })
-        }
-    },
+    
     mounted(){
         let fadeInTarget = document.querySelectorAll('.fade-in');
         window.addEventListener('scroll', () => {
