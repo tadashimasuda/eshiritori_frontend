@@ -1,7 +1,7 @@
 <template>
   <div>
       <header>
-        <div id="header_container">
+        <div id="header_container" class="col-md-6">
           <div id="header_title">
             <nuxt-link to="/"><h6 id="title">Title</h6></nuxt-link>
           </div>

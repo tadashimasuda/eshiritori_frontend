@@ -1,5 +1,5 @@
 <template>
-  <div class="wapper col-md-8">
+  <div class="wapper col-md-6">
     <div id="top" class="mt-1">
       <h2>Twitterで絵しりとりできるサービス</h2>
       <div class="twitter-login-btn">
