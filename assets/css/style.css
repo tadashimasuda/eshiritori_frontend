@@ -179,19 +179,17 @@ div.top-post{
     padding-right: 5px;
 }
 /* tables */
-#tables_wapper{
-    width: 96%;
-    margin: 0 auto;
-}
-#tables{
-    width: 100%;
+.table{
+    width: 330px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    background-color: #fff;
 }
 #tables_title,#users_title,#owner_title{
     text-align: center;
     margin: 40px 0;
 }
 div#table{
-    width: 350px;
+    width: 200px;
     margin: 0 auto;
     margin-top: 20px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
@@ -386,20 +384,16 @@ div#img{
 @media(min-width:544px){
 /* tables */
     #tables{
-        width: 960px;
+        /* width: 960px; */
         height: auto;
         /* display: flex; */
         margin: 0 auto;
     }
-    #tables_wapper{
+    /* #tables_wapper{
         width: 960px;
         margin: 0 auto;
-    }
-    div#table{
-        float: left;
-        width: 360px;
-        margin-left: 90px;
-    }
+    } */
+    
     .cb{
         clear: both;
     }

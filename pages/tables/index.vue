@@ -1,25 +1,21 @@
 <template>
-    <div id="tables_wapper">
-        <!-- <h3 id="tables_title">テーブル一覧</h3> -->
-        <div id="tables">
-            <div id="table" v-for="table in tables" :key="table.id">
+    <div id="tables_wapper" class="row col-md-6 mx-auto mt-5">
+        <h4>テーブル一覧</h4>
+        <div id="tables" class="row">
+            <div class="mx-auto table mt-2 rounded" v-for="table in tables" :key="table.id">
+            <p class="text-center">{{table.name}}</p>
+            <div class="table-post-img">
                 <nuxt-link :to="`/tables/${table.id}`">
-                    <div class="post-image">
-                        <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
-                    </div>
+                    <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" width="100%" alt="テーブル画像">
                 </nuxt-link>
-                <p>{{table.name}}</p>
-                <div class="post-user">
-                    <div class="user-img">
-                        <img :src="`${table.owner.img_path}`" alt="">
-                        <nuxt-link :to="`/users/${table.owner.id}`" class="user-name">主催者：{{table.owner.name}}</nuxt-link>
-                    </div>
-                    <p>{{table.created_at}}</p>
-                </div>
             </div>
-            <div class="cb"></div>
+            <div class="join-table-user">
+                <img :src="`${table.owner.img_path}`" class="rounded-circle" height="35px" alt="">
+                <p class="text-right mb-0">{{table.created_at}}</p>
+            </div>
         </div>
         </div>
+    </div>
 </template>
 
 <script>
