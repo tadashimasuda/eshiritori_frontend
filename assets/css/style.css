@@ -280,7 +280,7 @@ transform: translate(0, 0);
 
 /* user page */
 .user_wapper,.user_inner{
-    width: 95%;
+    /* width: 95%; */
     margin: 0 auto;
 }
 .user_inner{
@@ -305,13 +305,10 @@ transform: translate(0, 0);
 }
 .user_owner_table{
     box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    margin-top: 20px;
-
 }
 .user_owner_table img{
     width: 100%;
     max-width: 450px;
-    border-top: 1px solid #000;
 }
 .create_table_box h2{
     text-align: center;
