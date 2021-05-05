@@ -270,22 +270,21 @@ div.owner img{
 }
 .box{
     width: 10px;
-    height: 20px;
-    background-color: pink;
+    height: 30px;
     margin: 0 auto;
 }
 
 .fade-in {
-opacity: 0;
-transition-duration: 500ms;
-transition-property: opacity, transform;
+    opacity: 0;
+    transition-duration: 500ms;
+    transition-property: opacity, transform;
 }  
 .fade-in-down {
-transform: translate(0, -50px);
+    transform: translate(0, -50px);
 }
 .scroll-in {
-opacity: 1;
-transform: translate(0, 0);
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 /* user page */

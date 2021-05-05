@@ -11,10 +11,12 @@
                     <i class="fas fa-paint-brush fx-lg"></i>続きを描く
                 </nuxt-link>
             </div>
-            {{posts.length}}
             <div id="posts">
-                <div v-for="post in this.posts" :key="post.id">
-                    <div class="fade-in fade-in-down table-post">
+                <div v-for="(post,index) in this.posts" :key="post.id">
+                    <div :class="postClass(index,'box my-2')">
+                        <i class="fas fa-arrow-up fa-2x"></i>
+                    </div>
+                    <div :class="postClass(index,'table-post') ">
                         <div class="table-post-user">
                             <img :src="post.user.img_path" alt="ユーザー画像" class="table-post-user">
                             <span class="table_user_name">{{post.user.name}}</span>
@@ -23,7 +25,6 @@
                             <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="投稿画像">
                         </div>
                     </div>
-                    <div class="fade-in fade-in-down box"></div>
                 </div>
             </div>
         </div>
@@ -52,7 +53,16 @@ export default {
             links:postsData.links,
         }
     },
-    
+    methods:{
+        postClass(id,type){
+            console.log(id);
+            if(id>2){
+                return `fade-in fade-in-down  ${type}`
+            }else{
+                return type
+            }
+        }
+    },
     mounted(){
         let fadeInTarget = document.querySelectorAll('.fade-in');
         window.addEventListener('scroll', () => {
@@ -66,6 +76,6 @@ export default {
             }
         }
         });
-    }
+    },
 }
 </script>
