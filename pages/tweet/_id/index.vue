@@ -41,7 +41,7 @@ export default {
             },
         }
         const id = route.params.id;
-        let data = await $axios.$get(`tables/${id}/post`);
+        let data = await $axios.$get(`posts/${id}`);
         let res = await $axios.$get('/user/followers',headers);
         return{
             post:data,

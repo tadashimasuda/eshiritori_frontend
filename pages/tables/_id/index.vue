@@ -6,11 +6,20 @@
                 <img :src="table.owner.img_path" alt="ユーザー画像">
                 <h4 class="owner_name">{{table.owner.name}}</h4>
             </div>
-            <div id="post-btn">
+            <template v-if="table.owner.id == user.id">
+                <p class="text-center">あなたがオーナーです。</p>
+            </template>
+            <template v-if="!table.close">
+                <div id="close-btn" class="col-5 mx-auto " @click='closeAlert()'>
+                    <button type="button" class="btn btn-danger"><i class="fas fa-times fx-lg mr-2"></i>テーブルを閉じる</button>
+                </div>
+            </template>
+            <div id="post-btn" class="mt-4" v-if="!table.close">
                 <nuxt-link :to="`/posts/${table.id}`" id="post-btn-link">
                     <i class="fas fa-paint-brush fx-lg"></i>続きを描く
                 </nuxt-link>
             </div>
+            <p v-if="table.close" class="text-center">テーブルはオーナーによって閉じられました。</p>
             <div id="posts">
                 <div v-for="(post,index) in this.posts" :key="post.id">
                     <div :class="postClass(index,'box my-2')">
@@ -55,11 +64,30 @@ export default {
     },
     methods:{
         postClass(id,type){
-            console.log(id);
             if(id>2){
                 return `fade-in fade-in-down  ${type}`
             }else{
                 return type
+            }
+        },
+        async closeAlert(){
+            let answer = confirm('本当にテーブルを閉じていいいですか？　元に戻すことはできません。')
+            if(answer){
+                let page_id = this.$route.params.id;
+                try {
+                    let token = 'Bearer ' + this.$store.getters.token;
+                    let headers = {
+                        headers:{
+                            "Authorization" :token,
+                            "Content-Type" : "application/json",
+                            "Accept" : "application/json"
+                        }
+                    }
+                    const res = await this.$axios.$put(`/tables/${page_id}/update`,{},headers)
+                } catch (error) {
+                    console.log(error);
+                }
+                this.$router.push(`/tables/${page_id}`)
             }
         }
     },
