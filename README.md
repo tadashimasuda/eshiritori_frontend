@@ -16,7 +16,7 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori-backned )
 5. Twitter APIからユーザーのフォロワー取得
 6. 設置済みのツイートリンクからツイート
 
-![eshiritori](https://user-images.githubusercontent.com/51233312/103135556-6c714e80-46fc-11eb-9137-671742be94b7.png)
+![eshiritori](https://user-images.githubusercontent.com/51233312/117447425-7b082600-af78-11eb-8969-79dfd9b8b9e5.png)
 
 ## 機能
 - ログイン機能
