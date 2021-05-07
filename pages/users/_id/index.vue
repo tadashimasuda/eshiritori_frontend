@@ -18,19 +18,29 @@
         <b-tabs content-class="mt-3" justified>
             <b-tab title="投稿された絵" active>
                 <div class="user_posts">
-                    <div class="user_post mt-2 col-md-10 mx-auto" v-for="post in posts" :key="post.id">
-                        <nuxt-link :to="`/tables/${post.table_id}`">
-                            <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
-                        </nuxt-link>
-                    </div>
+                    <template v-if="posts.length>0">
+                        <div class="user_post mt-2 col-md-10 mx-auto" v-for="post in posts" :key="post.id">
+                            <nuxt-link :to="`/tables/${post.table_id}`">
+                                <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${post.img_path}`" alt="">
+                            </nuxt-link>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <p class="text-center">投稿はありません</p>
+                    </template>
                 </div>
             </b-tab>
             <b-tab title="主催しているテーブル">
                 <div class="user_owner_tables">
-                    <div class="user_owner_table mt-3 col-md-10 mx-auto" v-for="table in tables" :key="table.id">
-                        <p class="table_owner_name text-center">{{table.name}}</p>
-                        <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
-                    </div>
+                    <template v-if="tables.length>0">
+                        <div class="user_owner_table mt-3 col-md-10 mx-auto" v-for="table in tables" :key="table.id">
+                            <p class="table_owner_name text-center">{{table.name}}</p>
+                            <img :src="`https://eshiritori-s3.s3-ap-northeast-1.amazonaws.com/post/${table.post.img_path}`" alt="テーブル画像">
+                        </div>
+                    </template>
+                    <template v-else>
+                        <p class="text-center">主催しているテーブルはありません</p>
+                    </template>
                 </div>
             </b-tab>
         </b-tabs>
