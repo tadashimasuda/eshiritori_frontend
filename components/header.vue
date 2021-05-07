@@ -34,6 +34,11 @@
                     <nuxt-link to="/users" @click="menu = !menu" class="menu-link"><i class="fas fa-users menu-icon"></i>ユーザー一覧</nuxt-link>
                   </p>
                 </li>
+                <li>
+                  <p>
+                    <nuxt-link to="/tables/create" @click="menu = !menu" class="menu-link"><i class="fas fa-plus menu-icon"></i>テーブルを作成</nuxt-link>
+                  </p>
+                </li>
                 <li id="menu_login" @click="menu = !menu">
                   <p>
                     <nuxt-link to="/oauth/twitter/redirect" class="menu-link"><i class="fas fa-sign-in-alt menu-icon"></i>ログイン</nuxt-link>
