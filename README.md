@@ -1,7 +1,7 @@
-# README Frontend(SSR)
+# README Frontend(サーバーサイドレンダリング)
 
 ### Brontend
-Backend( [github]:https://github.com/tadashimasuda/eshiritori-backned )
+Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 
 ## 作った理由
    - Twitterカード（OGP）を使ったサービスを開発したかったため。
@@ -31,11 +31,13 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori-backned )
 - 絵コンテンツ投稿機能
 
 ## 注力した点
+- Vuexを用いた状態管理
 - Vuexのリロード対策
     - 状態管理Vuexはリロードしてしまうと保持していたユーザー情報などのデータが消えてしまうことにクッキーにtokenを保存し、消えても取得できるようにした。
-    
 - Twitterログイン
-    - Twitterログインを
+    - リダイレクトURLをLaravelから受け取り、ユーザーを遷移し、認証を行ってもらい、oauth_verifierなどの情報をLaravelに送信してユーザーの作成、ログインを行った。また、Laravel PassportのAccess_tokenを用いて認証を行った。
+- 画像のエンコード
+    - 画像データをBase64 エンコードして文字列化することで送信した。
 ## 使用した言語、技術、サービス
 - 言語
     - Frontend : Nuxt.js
@@ -46,7 +48,7 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori-backned )
 
 - 技術
     - 認証周り
-        Laravel　Socialite,Passport
+        Laravel Socialite,Passport
     
     - Cors
         laravel-cors
