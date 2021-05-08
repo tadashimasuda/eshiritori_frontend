@@ -13,9 +13,10 @@
             </select>
         </div> -->
         <!-- <p v-if="select_follower">指名されたフォロワー：{{select_follower}}</p> -->
-        <div class="tweet-btn mt-5">
+        <div class="tweet-btn my-5">
             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>  
+        </div>
+        <nuxt-link :to="`/tables/${post.table_id}`">ツイートせずにテーブルに戻る</nuxt-link>
     </div>
 </div>
 </template>
