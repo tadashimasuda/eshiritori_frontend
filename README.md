@@ -1,6 +1,6 @@
 # README Frontend(サーバーサイドレンダリング)
 
-### Brontend
+### Backend
 Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 
 ## 作った理由
