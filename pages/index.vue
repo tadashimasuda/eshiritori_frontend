@@ -2,10 +2,21 @@
   <div class="wapper col-md-6">
     <div id="top" class="mt-1">
       <h2>Twitterで絵しりとりできるサービス</h2>
-      <div class="twitter-login-btn">
-        <i class="fab fa-twitter fa-lg"></i>
-        <span>Twitterでログイン</span>
-      </div>
+      <template v-if="authenticated">
+        <button type="button" class="btn table-btn btn-danger mt-5">
+          <span>
+            <nuxt-link to="/tables" class="text-light">テーブルを見る</nuxt-link>
+          </span> 
+        </button>
+      </template>
+      <template v-else>
+        <div class="twitter-login-btn">
+          <i class="fab fa-twitter fa-lg"></i>
+          <span>
+            <nuxt-link to="/oauth/twitter/redirect" class="text-light">Twitterでログイン</nuxt-link>
+          </span>   
+        </div>
+      </template>
     </div>
     <div class="main">
       <h3 id="top_main_title">最近投稿された絵</h3>

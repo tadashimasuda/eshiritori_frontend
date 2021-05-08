@@ -29,7 +29,10 @@ export default {
             post:[]
         }
     },
-    async asyncData({store,route,$axios}){
+    async asyncData({store,route,$axios,redirect}){
+        if(!store.getters.authenticated){
+            return redirect('/loginBtn')
+        }
         let token = 'Bearer ' + store.getters.token;
         let headers = {
             data:{},
