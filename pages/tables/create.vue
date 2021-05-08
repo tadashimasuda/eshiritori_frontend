@@ -42,7 +42,7 @@ export default {
                 }
             }
             await this.$axios.$post('/tables',req,headers).then(res => {
-                console.log(res);
+                this.$router.push('/tables')
             }).catch(err=>{
                 console.log(err.response);
             });
