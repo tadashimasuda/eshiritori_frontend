@@ -83,11 +83,11 @@ export default {
                             "Accept" : "application/json"
                         }
                     }
-                    const res = await this.$axios.$put(`/tables/${page_id}/update`,{},headers)
+                    await this.$axios.$put(`/tables/${page_id}/update`,{},headers)
+                    this.table.close = 1
                 } catch (error) {
                     console.log(error);
                 }
-                this.$router.push(`/tables/${page_id}`)
             }
         }
     },
