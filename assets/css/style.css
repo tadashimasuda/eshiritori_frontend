@@ -4,6 +4,10 @@ ul,li{
 .nuxt-link-active {
     color: black;
 }
+.nuxt-link-active:hover{
+    color: black;
+    text-decoration: none;
+}
 .wapper{
     width: 95%;
     margin: 0 auto;
@@ -94,6 +98,9 @@ header menu
 #menus ul li{
     padding: 20px 0;
     border-bottom: 1px solid #fafafa;
+}
+#menus ul li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .menu-icon{
     margin-right: 8px;

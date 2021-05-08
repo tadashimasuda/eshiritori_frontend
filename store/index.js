@@ -44,6 +44,7 @@ export const mutations = {
     state.token=null
     state.user=null;
     Cookies.remove('token');
+    alert('ログアウトしました。')
   }
 }
 
