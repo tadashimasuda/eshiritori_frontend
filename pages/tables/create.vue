@@ -5,7 +5,8 @@
             <div id="form" >
                 <form> 
                     <label for="table_name">テーブル名：</label>
-                    <input v-model="name" type="text" id="table_name">
+                    <input v-model="name" type="text" id="table_name"><br>
+                    <small v-if="warning" class="text-danger">テーブル名が入力されていません</small>
                     <Canvas @getData="postData" />
                 </form>
             </div>
@@ -21,7 +22,8 @@ export default {
     data(){
         return{
             name:'',
-            image:''
+            image:'',
+            warning:false
         }
     },
     components:{
@@ -29,23 +31,28 @@ export default {
     },
     methods:{
         async postData(data) {
-            let req = {
-                name:this.name,
-                image : data
-            }
-            let token = 'Bearer ' + this.$store.getters.token;
-            let headers = {
-                headers:{
-                    "Authorization" :token,
-                    "Content-Type" : "application/json",
-                    "Accept" : "application/json"
+            if (!this.name) {
+                this.warning =true
+            }else{
+                let req = {
+                    name:this.name,
+                    image : data
                 }
+                let token = 'Bearer ' + this.$store.getters.token;
+                let headers = {
+                    headers:{
+                        "Authorization" :token,
+                        "Content-Type" : "application/json",
+                        "Accept" : "application/json"
+                    }
+                }
+                await this.$axios.$post('/tables',req,headers).then(res => {
+                    this.$router.push('/tables')
+                }).catch(err=>{
+                    console.log(err.response);
+                });
             }
-            await this.$axios.$post('/tables',req,headers).then(res => {
-                this.$router.push('/tables')
-            }).catch(err=>{
-                console.log(err.response);
-            });
+            
         }
     }
 
