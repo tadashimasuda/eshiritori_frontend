@@ -6,8 +6,10 @@
                 <img :src="table.owner.img_path" alt="ユーザー画像">
                 <h4 class="owner_name">{{table.owner.name}}</h4>
             </div>
-            <template v-if="table.owner.id == user.id">
-                <p class="text-center">あなたがオーナーです。</p>
+            <template v-if="authenticated">
+                <template v-if="table.owner.id == user.id">
+                    <p class="text-center">あなたがオーナーです。</p>
+                </template>
             </template>
             <template v-if="!table.close">
                 <div id="close-btn" class="col-5 mx-auto " @click='closeAlert()'>

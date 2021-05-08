@@ -13,6 +13,7 @@
 import Canvas from '@/components/Canvas.vue';
 
 export default {
+    middleware:['auth'],
     components:{
         Canvas
     },
