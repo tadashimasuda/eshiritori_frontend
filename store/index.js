@@ -49,22 +49,22 @@ export const mutations = {
 }
 
 export const actions = {
-  // async nuxtServerInit({ commit },{ req }){
-  //   if(req.headers.cookie.token){
-  //     const token = 'Bearer ' + cookieparser.parse(req.headers.cookie).token
-  //     let user = ''; 
-  //     try {
-  //         user = await this.$axios.$get('/user',{ 
-  //           headers:{ 
-  //             'Authorization': token,
-  //             'Accept':'application/json'
-  //           }
-  //         })
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     commit('setToken',{ token:cookieparser.parse(req.headers.cookie).token});
-  //     commit('setUser',user);
-  //   }
-  // }
+  async nuxtServerInit({ commit },{ req }){
+    if(req && req.headers && req.headers.cookie){
+      const token = 'Bearer ' + cookieparser.parse(req.headers.cookie).token
+      let user = ''; 
+      try {
+          user = await this.$axios.$get('/user',{ 
+            headers:{ 
+              'Authorization': token,
+              'Accept':'application/json'
+            }
+          })
+        } catch (err) {
+          console.log(err);
+        }
+      commit('setToken',{ token:cookieparser.parse(req.headers.cookie).token});
+      commit('setUser',user);
+    }
+  }
 }
