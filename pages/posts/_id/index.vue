@@ -31,7 +31,8 @@ export default {
     },
     methods:{
         async postData(encode_data) {
-            let req = {
+            if(this.$store.getters.token){
+                let req = {
                 table_id : this.post.table_id,
                 image : encode_data
             }
@@ -48,6 +49,7 @@ export default {
             }).catch(err=>{
                 console.log(err.response);
             });
+            }
         }
     }
 }

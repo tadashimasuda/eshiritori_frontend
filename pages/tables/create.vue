@@ -34,27 +34,27 @@ export default {
             if (!this.name) {
                 this.warning =true
             }else{
-                let req = {
-                    name:this.name,
-                    image : data
-                }
-                let token = 'Bearer ' + this.$store.getters.token;
-                let headers = {
-                    headers:{
-                        "Authorization" :token,
-                        "Content-Type" : "application/json",
-                        "Accept" : "application/json"
+                if (this.$store.getters.token) {
+                    let req = {
+                        name:this.name,
+                        image : data
                     }
+                    let token = 'Bearer ' + this.$store.getters.token;
+                    let headers = {
+                        headers:{
+                            "Authorization" :token,
+                            "Content-Type" : "application/json",
+                            "Accept" : "application/json"
+                        }
+                    }
+                    await this.$axios.$post('/tables',req,headers).then(res => {
+                        this.$router.push('/tables')
+                    }).catch(err=>{
+                        console.log(err.response);
+                    });
                 }
-                await this.$axios.$post('/tables',req,headers).then(res => {
-                    this.$router.push('/tables')
-                }).catch(err=>{
-                    console.log(err.response);
-                });
             }
-            
         }
     }
-
 }
 </script>
