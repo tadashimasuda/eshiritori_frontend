@@ -44,7 +44,7 @@ export default {
   axios:{
     credentials: true,
     // baseURL:'http://localhost:8000/api'
-    baseURL:'https://eshiritori.herokuapp.com/'
+    baseURL:'https://eshiritori.herokuapp.com/api'
     // baseURL:'https://laravel-eshiritori.herokuapp.com/api'
   },
 
