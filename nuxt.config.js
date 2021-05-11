@@ -43,8 +43,8 @@ export default {
   ],
   axios:{
     credentials: true,
-    // baseURL:'http://localhost:8000/api'
-    baseURL:'https://laravel-eshiritori.herokuapp.com/api'
+    baseURL:'http://localhost:8000/api'
+    // baseURL:'https://laravel-eshiritori.herokuapp.com/api'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
