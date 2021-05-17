@@ -18,7 +18,7 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 
 ![eshiritori](https://user-images.githubusercontent.com/51233312/117447425-7b082600-af78-11eb-8969-79dfd9b8b9e5.png)
 
-
+※これからAWSにデプロイする予定です。
 
 ## 注力した点
 - Vuexを用いた状態管理
