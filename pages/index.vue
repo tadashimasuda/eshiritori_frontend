@@ -1,7 +1,7 @@
 <template>
   <div class="wapper col-md-6">
     <div class="warning bg-success mt-1 text-center text-light">
-      <small>Twitterログインが故障中です。<a href="/login">こちらのページ</a>からお願いします。</small>
+      <small>Twitterログインが故障中です。<nuxt-link to="/login">こちら</nuxt-link>からお願いします。</small>
     </div>
     <div id="top" class="">
       <h2>Twitterで絵しりとりできるサービス</h2>
