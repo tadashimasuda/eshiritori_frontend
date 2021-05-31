@@ -1,6 +1,9 @@
 <template>
   <div class="wapper col-md-6">
-    <div id="top" class="mt-1">
+    <div class="warning bg-success mt-1 text-center text-light">
+      <small>Twitterログインが故障中です。<a href="/login">こちらのページ</a>からお願いします。</small>
+    </div>
+    <div id="top" class="">
       <h2>Twitterで絵しりとりできるサービス</h2>
       <template v-if="authenticated">
         <button type="button" class="btn table-btn btn-danger mt-5">
@@ -57,6 +60,10 @@ export default {
       tables:tablesData.data,
       posts:postsData.data
     }
+  },
+  mounted(){
+    // aslert('aa')
   }
+
 }
 </script>
