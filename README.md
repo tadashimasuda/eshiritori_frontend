@@ -16,11 +16,12 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 5. Twitter APIからユーザーのフォロワー取得
 6. 設置済みのツイートリンクからツイート
 
-![eshiritori](https://user-images.githubusercontent.com/51233312/117447425-7b082600-af78-11eb-8969-79dfd9b8b9e5.png)
-
-※これからAWSにデプロイする予定です。
+<img src="https://user-images.githubusercontent.com/51233312/117447425-7b082600-af78-11eb-8969-79dfd9b8b9e5.png" width="500px">
+<img src="https://user-images.githubusercontent.com/51233312/120349355-033fd800-c339-11eb-834e-426b67463246.png" width="500px">
 
 ## 注力した点
+- インフラにAWSを用いた。
+    - EC2,RDS,VPCを用いてbackendをデプロイに挑戦した。
 - Vuexを用いた状態管理
 - Vuexのリロード対策
     - 状態管理Vuexはリロードしてしまうと保持していたユーザー情報などのデータが消えてしまうことにクッキーにtokenを保存し、消えても取得できるようにした。
