@@ -50,7 +50,7 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit },{ req }){
-    if(cookieparser.parse(req.headers.cookie).token){
+    if(req && req.headers && req.headers.cookie){
       const token = 'Bearer ' + cookieparser.parse(req.headers.cookie).token
       let user = ''; 
       try {
