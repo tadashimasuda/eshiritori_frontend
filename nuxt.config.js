@@ -43,8 +43,8 @@ export default {
   ],
   axios:{
     credentials: true,
-    // baseURL:'http://ec2-18-178-50-251.ap-northeast-1.compute.amazonaws.com/api'
-    baseURL:'http://localhost:8000/api'
+    baseURL:'http://ec2-35-74-95-57.ap-northeast-1.compute.amazonaws.com/api'
+    // baseURL:'http://localhost:8000/api'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
