@@ -60,10 +60,6 @@ export default {
       tables:tablesData.data,
       posts:postsData.data
     }
-  },
-  mounted(){
-    // aslert('aa')
   }
-
 }
 </script>
