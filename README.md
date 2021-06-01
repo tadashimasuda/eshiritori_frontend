@@ -67,3 +67,6 @@ Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 - いいね機能、お気に入り機能、通知機能
 
 <img src="https://user-images.githubusercontent.com/51233312/118384581-1c127300-b642-11eb-8e47-e5e6e9ed1c01.png" width="210px"><img src="https://user-images.githubusercontent.com/51233312/118384583-1e74cd00-b642-11eb-8533-16d39d716e6d.png" width="210px"><img src="https://user-images.githubusercontent.com/51233312/118384586-1f0d6380-b642-11eb-93d9-26a8803ef669.png" width="210px"><img src="https://user-images.githubusercontent.com/51233312/118384587-1f0d6380-b642-11eb-9f37-a097892fee4b.png" width="210px"><img src="https://user-images.githubusercontent.com/51233312/118384588-1fa5fa00-b642-11eb-8ce3-5c476c45e757.png" width="210px"><img src="https://user-images.githubusercontent.com/51233312/118384590-203e9080-b642-11eb-955d-7587fc5383c1.png" width="210px">
+
+
+
