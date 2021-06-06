@@ -3,6 +3,10 @@
 ### Backend
 Backend( [github]:https://github.com/tadashimasuda/eshiritori_backend )
 
+## URL
+URL:<a href="eshiritori.xyz" target="_blank" rel="noopener noreferrer">eshiritori.xyz</a>
+※ログイン機能等を修正中です。下記の画像を御覧ください。
+
 ## 作った理由
    - Twitterカード（OGP）を使ったサービスを開発したかったため。
    - 個人的にも使ってみたい技術が存在したため（Twitter連携、お絵かき機能Canvas).
